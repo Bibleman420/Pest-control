@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c877fxyrxa6ja"]
+
+[ext_resource type="PackedScene" uid="uid://bh6ejxq8jbjgy" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://djvxjgld6dyog" path="res://Scenes/rat.tscn" id="1_qxrlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxrlw"]
+size = Vector2(1178, 20)
+
+[node name="Game" type="Node2D"]
+
+[node name="Rat" parent="." instance=ExtResource("1_qxrlw")]
+position = Vector2(867, 245)
+
+[node name="Player" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(498, 380)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1181, 303)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_qxrlw")
